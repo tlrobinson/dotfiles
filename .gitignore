@@ -1,0 +1,16 @@
+.DS_Store
+
+/*
+
+!/.dotfiles
+
+!/.ssh
+/.ssh/*_rsa
+/.ssh/*_dsa
+
+!/.atom
+/.atom/.apm
+/.atom/compile-cache
+/.atom/packages
+/.atom/storage
+/.atom/blob-store
