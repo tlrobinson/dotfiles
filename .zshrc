@@ -1,4 +1,12 @@
-source $HOME/.dotfiles/antigen/antigen.zsh
+# source $HOME/.dotfiles/antigen/antigen.zsh
+
+config_files=($HOME/.dotfiles/**/*.zsh)
+
+# load the path files
+for file in ${config_files}
+do
+  source $file
+done
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -20,3 +28,16 @@ antigen theme robbyrussell
 antigen apply
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+
+alias m="cd ~/Sync/Work/Metabase/metabase"
+alias mm="~/Sync/Work/Metabase/branches/clone-branch"
+alias smtpserver="sudo python -m smtpd -n -c DebuggingServer localhost:25"
+
+alias mac_iphone="sudo ifconfig en0 ether 70:70:0D:00:D3:B5"
+
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+test -e "${HOME}/.zshrc.credentials.zsh" && source "${HOME}/.zshrc.credentials.zsh"

@@ -23,7 +23,7 @@
 '.source.js':
   'React Component':
     'prefix': 'React'
-    'body': 'import React, { Component, PropTypes } from "react";\n\nexport default class $1 extends Component {\n    constructor(props, context) {\n        super(props, context);\n        this.state = {};\n    }\n\n    static propTypes = {};\n    static defaultProps = {};\n\n    render() {\n        return (\n            <div>hello</div>\n        );\n    }\n}\n'
+    'body': '/* @flow */\n\nimport React, { Component, PropTypes } from "react";\n\ntype Props = {\n};\n\ntype State = {\n};\n\nexport default class $1 extends Component<*, Props, State> {\n    state: State;\n\n    constructor(props: Props) {\n        super(props);\n        this.state = {};\n    }\n\n    static defaultProps = {};\n\n    render() {\n        return (\n            <div>hello</div>\n        );\n    }\n}\n\nconst $1 = ({}: Props) =>\n    <div>hello</div>;\n\nexport default $1;\n'
   'React Lifecycle Methods':
     'prefix': 'Lifecycle'
     'body': '\n    // componentWillMount() {}\n    // componentDidMount() {}\n    // componentWillReceiveProps(nextProps) {}\n    // shouldComponentUpdate(nextProps, nextState) {}\n    // componentWillUpdate(nextProps, nextState) {}\n    // componentDidUpdate(prevProps, prevState) {}\n    // componentWillUnmount() {}\n'

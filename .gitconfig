@@ -1,0 +1,44 @@
+[hub]
+  protocol = https
+[user]
+  name = Tom Robinson
+  email = tlrobinson@gmail.com
+[credential]
+  helper = osxkeychain
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	dc = diff --cached
+	count = shortlog -sn
+	last = log -1 HEAD
+	yesterday = log --branches=* --author='Tom Robinson' --pretty=short --since=yesterday
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  ui = true
+[core]
+  excludesfile = ~/.gitignore
+  editor = vim
+[apply]
+  whitespace = nowarn
+[mergetool]
+  keepBackup = false
+[difftool]
+  prompt = false
+[help]
+  autocorrect = 1
+[push]
+  default = simple
+[github]
+  user = tlrobinson
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
