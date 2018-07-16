@@ -1,80 +1,38 @@
 "*":
-  "atom-beautify":
-    general:
-      _analyticsUserId: "9e9c0124-d3a8-4014-8772-3b25c3dd68d5"
-  "autocomplete-flow": {}
   core:
     customFileTypes:
       "source.ini": [
-        ".buckconfig"
         ".hgrc"
+        ".buckconfig"
         ".flowconfig"
       ]
       "source.json": [
-        ".arcconfig"
         "BUCK.autodeps"
       ]
       "source.python": [
         "BUCK"
       ]
     disabledPackages: [
-      "autocomplete-flow"
-      "flow-ide"
-      "ide-flow"
-      "linter-flow"
       "tree-view"
       "linter"
     ]
     telemetryConsent: "no"
-  editor:
-    invisibles: {}
-    preferredLineLength: 100
-    showInvisibles: true
-  "exception-reporting":
-    userId: "5a3da54e-7457-f4dc-7e89-183bae2a58b6"
-  "ide-flow":
-    flowPath: "/Users/tlrobinson/.nvm/versions/node/v4.4.7/bin/flow"
-  "language-babel": {}
-  linter:
-    errorPanelHeight: 24
-  "linter-eslint": {}
-  "linter-flow":
-    executablePath: "/Users/tlrobinson/.nvm/versions/node/v4.4.7/bin/flow"
+  "linter-ui-default":
+    panelHeight: 450
+    showPanel: true
   nuclide:
-    "nuclide-diagnostics-ui": {}
+    "atom-ide-diagnostics-ui": {}
     "nuclide-flow":
-      enableTypeHints: false
-      pathToFlow: "/Users/tlrobinson/Sync/Work/Metabase/metabase/node_modules/.bin/flow"
+      canUseFlowBin: true
     "nuclide-home":
       showHome: false
-  "tree-view": {}
+    use: {}
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
+    prettierOptions:
+      trailingComma: "all"
   welcome:
     showOnStartup: false
-".ansi.text":
-  editor:
-    preferredLineLength: 100
-".babel.regexp.source":
-  editor:
-    preferredLineLength: 100
-".clojure.source":
-  editor:
-    autoIndent: true
-    autoIndentOnPaste: false
-    preferredLineLength: 100
-".hack.html.text":
-  editor:
-    preferredLineLength: 100
-".hackfragment.source":
-  editor:
-    preferredLineLength: 100
-".hg-commit.text":
-  editor:
-    preferredLineLength: 100
-".js.jsx.source":
-  editor:
-    preferredLineLength: 100
-    tabLength: 4
-".languagebabel.ttlextension":
-  editor:
-    preferredLineLength: 100
-    tabLength: 4

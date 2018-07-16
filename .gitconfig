@@ -6,21 +6,21 @@
 [credential]
   helper = osxkeychain
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	dc = diff --cached
-	count = shortlog -sn
-	last = log -1 HEAD
-	yesterday = log --branches=* --author='Tom Robinson' --pretty=short --since=yesterday
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  dc = diff --cached
+  count = shortlog -sn
+  last = log -1 HEAD
+  yesterday = log --branches=* --author='Tom Robinson' --pretty=short --since=yesterday
 [color]
   diff = auto
   status = auto
   branch = auto
   ui = true
 [core]
-  excludesfile = ~/.gitignore
+  excludesfile = ~/.gitignore_global
   editor = vim
 [apply]
   whitespace = nowarn
@@ -35,10 +35,15 @@
 [github]
   user = tlrobinson
 [filter "media"]
-	clean = git media clean %f
-	smudge = git media smudge %f
-	required = true
+  clean = git media clean %f
+  smudge = git media smudge %f
+  required = true
 [filter "hawser"]
-	clean = git hawser clean %f
-	smudge = git hawser smudge %f
-	required = true
+  clean = git hawser clean %f
+  smudge = git hawser smudge %f
+  required = true
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f

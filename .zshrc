@@ -29,8 +29,8 @@ antigen apply
 
 alias config='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 
-alias m="cd ~/Sync/Work/Metabase/metabase"
-alias mm="~/Sync/Work/Metabase/branches/clone-branch"
+alias m="cd ~/metabase/metabase"
+alias mm="~/metabase/metabase-branches/start-branch"
 alias smtpserver="sudo python -m smtpd -n -c DebuggingServer localhost:25"
 
 alias mac_iphone="sudo ifconfig en0 ether 70:70:0D:00:D3:B5"
@@ -41,3 +41,7 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 test -e "${HOME}/.zshrc.credentials.zsh" && source "${HOME}/.zshrc.credentials.zsh"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
