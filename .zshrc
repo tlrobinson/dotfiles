@@ -1,12 +1,4 @@
-# source $HOME/.dotfiles/antigen/antigen.zsh
-
-config_files=($HOME/.dotfiles/**/*.zsh)
-
-# load the path files
-for file in ${config_files}
-do
-  source $file
-done
+source ~/.antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -27,21 +19,37 @@ antigen theme robbyrussell
 # Tell antigen that you're done.
 antigen apply
 
-alias config='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-
 alias m="cd ~/metabase/metabase"
-alias mm="~/metabase/metabase-branches/start-branch"
+alias mm="~/metabase/metabase-branch/metabase-branch"
+
+alias httpserver="sudo python -m SimpleHTTPServer 80"
 alias smtpserver="sudo python -m smtpd -n -c DebuggingServer localhost:25"
+alias nmap++="sudo nmap -sS -sU -T4 -A -v -PE -PP -PS80,443 -PA3389 -PU40125 -PY -g 53 -script 'default or (discovery and safe)'"
 
-alias mac_iphone="sudo ifconfig en0 ether 70:70:0D:00:D3:B5"
+alpine() {
+  docker build -t alpine-tlrobinson - << EOF
+FROM alpine
+RUN apk add git zsh
+WORKDIR /root
+RUN git init
+RUN git remote add origin https://github.com/tlrobinson/dotfiles.git
+RUN git pull origin master
+RUN /bin/zsh
+ENTRYPOINT ["/bin/zsh"]
+EOF
+  docker run --rm -it alpine-tlrobinson
+}
 
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+[ -d "/usr/local/sbin" ] && export PATH="/usr/local/sbin:$PATH"
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# iTerm
+[ -s "$HOME/.iterm2_shell_integration.zsh" ] && source "$HOME/.iterm2_shell_integration.zsh"
 
-test -e "${HOME}/.zshrc.credentials.zsh" && source "${HOME}/.zshrc.credentials.zsh"
-
+# NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+if [ -d "$NVM_DIR" ]; then
+  source "$NVM_DIR/nvm.sh"  # This loads nvm
+  source "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+fi
+
+# end dotfiles .zshrc
